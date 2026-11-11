@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JetLuxed — Private Aviation, Empty-Leg Charters &amp; Executive Access</title>
+  <meta name="description" content="On-demand private jet charter quotes, discounted empty-leg flights, and executive capital &amp; AI concierge access curated by @jetluxed." />
+  <style>
+    :root {
+      --bg: #07080b;
+      --surface: rgba(18, 20, 27, 0.88);
+      --border: rgba(232, 197, 116, 0.24);
+      --gold: #e8c574;
+      --gold-soft: rgba(232, 197, 116, 0.14);
+      --ivory: #f5eee0;
+      --muted: #9ca3b5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(232, 197, 116, 0.14), transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(232, 197, 116, 0.07), transparent 50%),
+        var(--bg);
+      color: var(--ivory);
+      min-block-size: 100dvh;
+      display: grid;
+      place-items: start center;
+      padding-block: 2.25rem 3.5rem;
+      padding-inline: 1.1rem;
+      line-height: 1.48;
+    }
+    .hub {
+      inline-size: min(100%, 32rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      container-type: inline-size;
+    }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: safe center;
+      text-align: center;
+      gap: 0.65rem;
+      padding-block-end: 0.45rem;
+    }
+    .avatar-ring {
+      inline-size: 5.25rem;
+      block-size: 5.25rem;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--gold), #9f7a34);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 32px rgba(232, 197, 116, 0.24);
+    }
+    .avatar-inner {
+      inline-size: 100%;
+      block-size: 100%;
+      border-radius: 50%;
+      background: #0b0d13;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+    }
+    .verified-pill {
+      display: inline-flex;
+      align-items: safe center;
+      gap: 0.4rem;
+      padding-block: 0.24rem;
+      padding-inline: 0.8rem;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      border: 1px solid rgba(232, 197, 116, 0.42);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(1.35rem, 1rem + 2.5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: clamp(0.88rem, 0.82rem + 0.4vw, 1rem);
+      max-inline-size: 40ch;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-block-start: 0.45rem;
+    }
+    .card {
+      position: relative;
+      container-type: inline-size;
+      display: grid;
+      gap: 0.35rem;
+      padding-block: 1.05rem;
+      padding-inline: 1.15rem;
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+    .card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(232, 197, 116, 0.16), rgba(16, 18, 25, 0.95));
+      box-shadow: 0 10px 30px rgba(232, 197, 116, 0.14);
+    }
+    .card:has(a.card-link:hover) {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 32px rgba(232, 197, 116, 0.18);
+    }
+    .card:has(a.card-link:focus-visible) {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .card header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .badge {
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-block: 0.15rem;
+      padding-inline: 0.5rem;
+      border-radius: 4px;
+      background: var(--gold);
+      color: #090a0e;
+    }
+    .cta-pill {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .card h2 {
+      font-size: clamp(0.98rem, 0.9rem + 0.5vw, 1.18rem);
+      font-weight: 800;
+      line-height: 1.28;
+    }
+    .card a.card-link {
+      color: var(--ivory);
+      text-decoration: none;
+    }
+    .card a.card-link:focus-visible {
+      outline: none;
+    }
+    .card a.card-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+    }
+    .card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-block-start: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="hub">
+    <section class="profile">
+      <div class="avatar-ring">
+        <div class="avatar-inner">JL</div>
+      </div>
+      <span class="verified-pill">✦ Private Aviation &amp; Higher Standard</span>
+      <h1>@jetluxed</h1>
+      <p class="sub">Global private jet charters, empty-leg flight alerts, and executive capital &amp; concierge access.</p>
+    </section>
+
+    <div class="section-label">✈️ Private Aviation &amp; Empty-Leg Charters</div>
+
+    <article class="card featured">
+      <header>
+        <span class="badge">10,000+ PRIVATE AIRCRAFT • 40,000 DESTINATIONS</span>
+        <span class="cta-pill">Instant Quote →</span>
+      </header>
+      <h2><a class="card-link" href="https://www.villiersjets.com/?id=jetluxed" target="_blank" rel="noopener">Compare Live Private Jet &amp; Empty-Leg Charter Quotes</a></h2>
+      <p>Search real-time pricing across 10,000+ accredited private aircraft worldwide and save up to 75% on repositioning empty-leg flights.</p>
+    </article>
+
+    <div class="section-label">🏛️ Founder Capital, Tax Strategy &amp; Luxury</div>
+
+    <article class="card">
+      <header>
+        <span class="badge">SAME-DAY APPROVALS • UP TO $2M</span>
+        <span class="cta-pill">Check Eligibility →</span>
+      </header>
+      <h2><a class="card-link" href="https://www.sunnyfinancing.com/?utm_source=jetluxed&amp;utm_medium=bio" target="_blank" rel="noopener">Sunny Financing — Executive &amp; Business Capital</a></h2>
+      <p>Fast working capital, equipment financing, and expansion credit lines built for high-growth operators.</p>
+    </article>
+
+    <article class="card">
+      <header>
+        <span class="badge">CPA + AI TAX STRATEGY</span>
+        <span class="cta-pill">Explore Strategy →</span>
+      </header>
+      <h2><a class="card-link" href="https://www.rivertaxes.com/?utm_source=jetluxed&amp;utm_medium=bio" target="_blank" rel="noopener">River Taxes — High-Earner Tax &amp; AI Bookkeeping</a></h2>
+      <p>Proactive entity structuring, depreciation strategy, and automated bookkeeping for founders &amp; investors.</p>
+    </article>
+
+    <article class="card">
+      <header>
+        <span class="badge">SOLID 14K GOLD &amp; LAB DIAMONDS</span>
+        <span class="cta-pill">Shop Collection →</span>
+      </header>
+      <h2><a class="card-link" href="https://viviour.com/?utm_source=jetluxed&amp;utm_medium=bio" target="_blank" rel="noopener">Viviour — Fine Solid 14K Diamond Tennis Bracelets</a></h2>
+      <p>Quiet-luxury solid gold &amp; IGI-certified fine jewelry crafted without traditional retail markups.</p>
+    </article>
+
+    <article class="card">
+      <header>
+        <span class="badge">250+ BRANDS BUILT</span>
+        <span class="cta-pill">Book Build →</span>
+      </header>
+      <h2><a class="card-link" href="https://www.izee.ai/?utm_source=jetluxed&amp;utm_medium=bio" target="_blank" rel="noopener">izee.ai — Custom Web, SEO &amp; 24/7 AI Concierge Agents</a></h2>
+      <p>High-converting digital flagships and autonomous AI voice &amp; chat systems for scaling companies.</p>
+    </article>
+
+    <footer>
+      © 2026 JetLuxed • Step Into A Higher Standard
+    </footer>
+  </main>
+</body>
+</html>
